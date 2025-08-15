@@ -1,0 +1,30 @@
+.grid {
+    margin: 0px;
+    padding: 0px;
+    display: grid;
+    grid-auto-rows: 50px;   
+}
+.grid > div {
+    padding: 0px;
+    margin: 0px;
+    background-color: #f1f1f1;
+    border: 1px solid black;
+}
+.container{
+    padding: 0px;
+    margin: 0px;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body{
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+audio{
+    display: none;
+}
