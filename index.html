@@ -7,16 +7,28 @@
     <title>Pixel memory</title>
 </head>
 <body>
-    <h2 id="points">0</h2>
+    <div id="game">
+       <h2 id="points">0</h2>
 
-    <div id="container" class="container">
-        <div id="Grid" class="grid">
-            
+        <div id="container" class="container">
+            <div id="Grid" class="grid">
+                
+            </div>
+        </div>
+
+        <div id="time"></div>
+        <progress id="progress" value="100" max="100"></progress> 
+    </div>
+    
+
+    <div id="end_screen">
+        <div id="details">
+            <h1 id="score"></h1>
+            <h3 id="best_score"></h3>
+            <button id="replay" onclick="initialise()">Replay</button>
+            <button id="menu">Menu</button>
         </div>
     </div>
-
-    <div id="time"></div>
-    <progress id="progress" value="100" max="100"></progress>
 
     <audio src="mixkit-unlock-game-notification-253.wav" id="unlock_audio"></audio>
     <audio src="mixkit-wrong-electricity-buzz-955.wav" id="wrong_audio"></audio>

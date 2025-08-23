@@ -22,6 +22,7 @@
 
 body{
     overflow-x: hidden;
+    font-family: arial;
 }
 
 audio{
@@ -33,4 +34,25 @@ audio{
 }
 #time{
     
+}
+#end_screen{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 1;
+    visibility: hidden;
+    background-color: white;
+}
+#Best_score{
+    color: gray;
+}
+#details{
+    text-align: center;
+}
+#game{
+    position: fixed;
+    z-index: 0;
 }

@@ -1,15 +1,23 @@
-var minutes = 3;
+var minutes = 0;
 var seconds = 30;
 var progress = document.getElementById("progress");
 var time = document.getElementById("time");
 var points = 0;
+var end_screen = document.getElementById("end_screen");
+var score = document.getElementById("score");
+var best_score = document.getElementById("best_score");
+var grid = document.getElementById("Grid");
+var global_num_cells = 0;
 
-timer();
-Begin();
+initialise();
+
+function initialise(){
+    end_screen.style.visibility = "hidden";
+    timer();
+    Begin(); 
+}
 
 function Begin(){
-
-    var grid = document.getElementById("Grid");
     var unlock_audio = document.getElementById("unlock_audio");
     var wrong_audio = document.getElementById("wrong_audio");
     var right_audio = document.getElementById("right_audio");
@@ -22,6 +30,7 @@ function Begin(){
 
     var rand =  Math.floor(Math.random() * (10-5) + 5);
     var num_cells = rand * rand;
+    global_num_cells = num_cells;
     var wrong_permit = Math.floor(num_cells/10)
     var num_chosen = Math.floor(num_cells/5);
 
@@ -103,11 +112,6 @@ function Begin(){
     }, 5000);
 }
 
-function end(){
-    alert("Points: " + points)
-    points = 0;
-}
-
 function timer(){
     interval = setInterval(decrease, 1000);
     total = seconds + (minutes * 60);
@@ -124,7 +128,16 @@ function timer(){
        
         if (minutes <= 0 && seconds <= 0){
             clearInterval(interval);
-            end();
+            end_screen.style.visibility = "visible";
+            score.innerHTML = "Score: " + points;
+            points = 0;
+            minutes = 0;
+            seconds = 30;
+            for (z = 0; z < global_num_cells; z ++){
+                cell = document.getElementById(z);
+                grid.removeChild(cell)
+            }
+            global_num_cells = 0;
         }
         progress.value -= one_second_percentage;
         time.innerHTML = minutes + ":" + seconds;
